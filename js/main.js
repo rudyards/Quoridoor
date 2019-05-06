@@ -2,7 +2,8 @@
 const PLAYER = {
   '1': 'lime',
   '-1': 'purple',
-  'null': 'white'
+  'null': 'white',
+  'w': 'black'
 }
 
 /*----- app's state (variables) -----*/
@@ -39,28 +40,28 @@ function movePlayer(target){
     if (board[row][col] != null){
         remindEl.textContent = "That square is currently occupied, you can't move there.";
     }
-    else if (board[row+2][col] === turn){
+    else if (board[row+2][col] === turn && board[row+1][col] === null){
         board[row+2][col] = null;
         board[row][col] = turn;
         turn *= -1;
         remindEl.textContent = "";
-    } else if (board[row-2][col] === turn){
+    } else if (board[row-2][col] === turn && board[row-1][col] === null){
         board[row-2][col] = null;
         board[row][col] = turn;
         turn *= -1;
         remindEl.textContent = "";
-    } else if (board[row][col+2] === turn){
+    } else if (board[row][col+2] === turn && board[row][col+1] === null){
         board[row][col+2] = null;
         board[row][col] = turn;
         turn *= -1;
         remindEl.textContent = "";
-    } else if (board[row][col-2] === turn){
+    } else if (board[row][col-2] === turn && board[row][col-1] === null){
         board[row][col-2] = null;
         board[row][col] = turn;
         turn *= -1;
         remindEl.textContent = "";
     } else {
-        remindEl.textContent = "That is too far away.";
+        remindEl.textContent = "You can't move there.";
     }
 
 }
