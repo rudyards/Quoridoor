@@ -21,9 +21,15 @@ document.querySelector('table').addEventListener('click', handleClick);
 initialize();
 
 function handleClick(evt){
-    if (evt.target.id[1] % 1 === 1) {
+    console.log(evt.target)
+    console.log(evt.target.id)
+    var location = evt.target.id.split('r');
+    console.log(location);
+    var col = parseInt(location[0].replace('c', ''));
+    if (col % 2 === 1) {
         placeWall(evt.target);
     } else {
+        console.log(evt.target.id)
         movePlayer(evt.target);
     }
     render();
@@ -67,8 +73,16 @@ function movePlayer(target){
 }
 
 function placeWall(target){
-    //Code for placing the wall correctly
-    //Don't render at the end, since this is only ever called in handleClick
+    var location = target.id.split('r');
+    var row = parseInt(location[1]);
+    var col = parseInt(location[0].replace('c', ''));
+    if (board[row][col] != null){
+        remindEl.textContent = "There is already a wall there.";
+    } else{
+        board[row][col] = "w";
+        turn *= -1;
+        remindEl.textContent = "";
+    }
 }
 
 function render(){
