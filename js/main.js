@@ -36,7 +36,10 @@ function movePlayer(target){
     // make sure that the location is next ot the player.
 
     // Since I can't think of an elegant way, I'm going to brute force this. Revisit later.
-    if (board[row+2][col] === turn){
+    if (board[row][col] != null){
+        remindEl.textContent = "That square is currently occupied, you can't move there.";
+    }
+    else if (board[row+2][col] === turn){
         board[row+2][col] = null;
         board[row][col] = turn;
         turn *= -1;
@@ -55,7 +58,7 @@ function movePlayer(target){
         board[row][col-2] = null;
         board[row][col] = turn;
         turn *= -1;
-        remindEl.textContent = ;
+        remindEl.textContent = "";
     } else {
         remindEl.textContent = "That is too far away.";
     }
