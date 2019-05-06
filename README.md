@@ -1,1 +1,3 @@
-# week-one-project
+# Quoridoor (Unit One Project)
+
+Quoridoor is a turn based, two player game. The objective is to get to the other side of the map before the other player does. Each turn players can choose to either move one square in a cardinal direction or to put a wall down on the side of a tile. Players can't place a tile if doing so would entirely prevent a player from being able to win the game (You can't box someone in).

@@ -1,0 +1,31 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+h1, h3 {
+  text-align: center;
+}
+
+body {
+    background-color: #E8E8E8;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    width: 55vh;
+}
+
+tr {
+    height: 5vh;
+}
+
+tr td:nth-of-type(2n){
+    width: 1vh;
+}
+
+tr:nth-child(even){
+    height:1vh;
+}
