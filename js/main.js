@@ -69,7 +69,6 @@ function movePlayer(target){
     } else {
         remindEl.textContent = "You can't move there.";
     }
-
 }
 
 function placeWall(target){
@@ -85,8 +84,17 @@ function placeWall(target){
     }
 }
 
+function checkWinner(){
+    for (i = 0; i < 13; i++){
+        if (board[i][0] === -1){
+            winner = -1;
+        } else if (board[i][12] === 1){
+            winner = 1;
+        }
+    }
+}
+
 function render(){
-    msgEl.textContent = `${PLAYER[turn].toUpperCase()}'s Turn`;
     boardEl.forEach(function(square, indx){
         var target = boardEl[indx].id;
         target = target.split('r');
@@ -95,6 +103,12 @@ function render(){
         var color = board[row][col]
         boardEl[indx].style.background = PLAYER[color];
     })
+    checkWinner();
+    if (winner){
+        msgEl.textContent = `Congratulations, player ${PLAYER[winner].toUpperCase()}, a winner is you!`;
+    } else {
+        msgEl.textContent = `${PLAYER[turn].toUpperCase()}'s Turn`;
+    }
 }
 
 function initialize(){
