@@ -15,22 +15,21 @@ body {
 }
 
 table {
-    width: 55vh;
+    width: 65vh;
 }
 
 tr {
-    height: 5vh;
-}
-
-tr td:nth-of-type(2n){
-    width: 1vh;
-    background-color: #F5F5F5;
+    height: 6vh;
 }
 
 tr:nth-child(even){
     height:1vh;
-    background-color: #F5F5F5;
 }
+
+td:nth-of-type(2n){
+    width: 1vh;
+}
+
 
 #reset {
     display: none;
