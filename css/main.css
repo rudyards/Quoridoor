@@ -31,3 +31,7 @@ tr:nth-child(even){
     height:1vh;
     background-color: #F5F5F5;
 }
+
+#reset {
+    display: none;
+}

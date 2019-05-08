@@ -16,6 +16,7 @@ const boardEl = document.querySelectorAll('td');
 
 /*----- event listeners -----*/ 
 document.querySelector('table').addEventListener('click', handleClick);
+document.getElementById('reset').addEventListener('click', initialize);
 
 /*----- functions -----*/
 initialize();
@@ -106,6 +107,7 @@ function render(){
     checkWinner();
     if (winner){
         msgEl.textContent = `Congratulations, player ${PLAYER[winner].toUpperCase()}, a winner is you!`;
+        document.getElementById('reset').style.display = "block";
     } else {
         msgEl.textContent = `${PLAYER[turn].toUpperCase()}'s Turn`;
     }
@@ -130,4 +132,5 @@ function initialize(){
     turn = 1;
     winner = null;
     render();
+    document.getElementById('reset').style.display = "none";
 }
