@@ -27,7 +27,8 @@ function handleClick(evt){
     var location = evt.target.id.split('r');
     console.log(location);
     var col = parseInt(location[0].replace('c', ''));
-    if (col % 2 === 1) {
+    var row = parseInt(location[1]);
+    if (col % 2 === 1 || row % 2 === 1) {
         placeWall(evt.target);
     } else {
         console.log(evt.target.id)
