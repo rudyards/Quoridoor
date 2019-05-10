@@ -22,16 +22,12 @@ document.getElementById('reset').addEventListener('click', initialize);
 initialize();
 
 function handleClick(evt){
-    console.log(evt.target)
-    console.log(evt.target.id)
     var location = evt.target.id.split('r');
-    console.log(location);
     var col = parseInt(location[0].replace('c', ''));
     var row = parseInt(location[1]);
     if (col % 2 === 1 || row % 2 === 1) {
         placeWall(evt.target);
     } else {
-        console.log(evt.target.id)
         movePlayer(evt.target);
     }
     render();
