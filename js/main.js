@@ -22,16 +22,12 @@ document.getElementById('reset').addEventListener('click', initialize);
 initialize();
 
 function handleClick(evt){
-    console.log(evt.target)
-    console.log(evt.target.id)
     var location = evt.target.id.split('r');
-    console.log(location);
     var col = parseInt(location[0].replace('c', ''));
     var row = parseInt(location[1]);
     if (col % 2 === 1 || row % 2 === 1) {
         placeWall(evt.target);
     } else {
-        console.log(evt.target.id)
         movePlayer(evt.target);
     }
     render();
@@ -99,11 +95,19 @@ function checkWinner(){
 function render(){
     boardEl.forEach(function(square, indx){
         var target = boardEl[indx].id;
-        target = target.split('r');
-        var row = target[1];
-        var col = target[0].replace('c', '');
+        var newtarget = target.split('r');
+        var row = newtarget[1];
+        var col = newtarget[0].replace('c', '');
         var color = board[row][col]
-        boardEl[indx].style.background = PLAYER[color];
+        if (color != '1' && color != '-1'){
+            boardEl[indx].style.background = PLAYER[color];
+        } else {
+            if (color === '1'){
+                boardEl[indx].style.backgroundImage = "url('/images/player1.png')";
+            } else {
+                boardEl[indx].style.backgroundImage = "url('/images/player2.png')";
+            }
+        }
     })
     checkWinner();
     if (winner){

@@ -30,7 +30,23 @@ td:nth-of-type(2n){
     width: 1vh;
 }
 
+td {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
 
 #reset {
     display: none;
+}
+
+img {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    height: 7.5vh;
+    width: 7.5vh;
 }
